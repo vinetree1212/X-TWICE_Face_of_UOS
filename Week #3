@@ -4,3 +4,44 @@ Support Vector Machine
 참고자료: https://www.youtube.com/watch?v=N1vOgolbjSc 
 
 https://www.youtube.com/watch?v=wsbHvs0nUOY (svm 간단한 예제 3,4)
+
+//////////////////////////////////////////
+#path값 확인하기
+import sys
+sys.path
+
+//////////////////////////////////////////////
+#데이터 불러오기 -> svm 3,4 예제
+import numpy as np
+from sklearn import svm
+
+x = np.genfromtxt('C:\ProgramData\Anaconda3\Example\input.csv', dtype = int, delimiter = ',')
+y = np.genfromtxt('C:\ProgramData\Anaconda3\Example\output.csv', dtype = int, delimiter = ',')
+
+clf= svm.SVC(kernel='linear')
+#clf= svm.SVC(kernel='rbf')
+#clf= svm.SVC(degree=2)
+
+clf.fit(x,y)
+print(clf.predict([[1,2],[6,1]]))
+
+///////////////////////////////////////////////////////
+
+%matplotlib inline
+
+#imports
+from numpy import *
+import matplotlib.pyplot as plt
+
+points = genfromtxt('C:\ProgramData\Anaconda3\Example\input.csv', delimiter=',')
+
+#Get x, y axis
+x = array(points[:,0])
+y = array(points[:,1])
+
+#Plot the dataset
+plt.scatter(x,y)
+plt.xlabel('X axis')
+plt.ylabel('Y axis')
+plt.title('Dataset')
+plt.show()
